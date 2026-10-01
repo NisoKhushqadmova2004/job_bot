@@ -4,6 +4,7 @@ def category_batton():
     keybor = ReplyKeyboardMarkup(
         keyboard= [
             [KeyboardButton(text="📋 Показать категори")],
+            [KeyboardButton(text="📋 Показать вакансии")],
             [KeyboardButton(text="➕ Добавить Категорию")],
             [KeyboardButton(text="➕ Добавить вакансию")],
             [KeyboardButton(text="Изменить категори")],

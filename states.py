@@ -4,6 +4,7 @@ from aiogram.filters import Command
 from service import *
 from aiogram.fsm.context import FSMContext
 from aiogram.fsm.state import State, StatesGroup
+from service import get_categories, get_vacancies
 
 router = Router()
 
@@ -73,15 +74,48 @@ async def job_category(message: Message, state: FSMContext):
     
     else:
         await message.answer("Ошибка при создании вакансии")
-    
-    
     await state.clear()    
-
- 
     
- 
-
     
+@router.message(F.text == "📋 Показать категори")
+async def show_categories(message: Message):
+
+    categories = get_categories()
+
+    if not categories:
+        await message.answer("❌ Категорий пока нет.")
+        return
+
+    text = "📋 Список категорий:\n\n"
+
+    for category in categories:
+        text += (
+            f"📂 Категория: {category['name']}\n"
+            f"📝 Описание: {category['description']}\n"
+            f"\n\n"
+        )
+
+    await message.answer(text)
+
+@router.message(F.text == "📋 Показать вакансии")
+async def show_vacancies(message: Message):
+
+    vacancies = get_vacancies()
+
+    if not vacancies:
+        await message.answer("❌ Вакансий пока нет.")
+        return
+
+    text = "📋 Список вакансий:\n\n"
+
+    for vacancy in vacancies:
+        text += (
+            f"💼 Вакансия: {vacancy['title']}\n"
+            f"🏢 Компания: {vacancy['company']}\n"
+            f"💰 Зарплата:{vacancy['salary']}\n"
+            f"\n\n"
+        )
+    await message.answer(text,)
     
     
     

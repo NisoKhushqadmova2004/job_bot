@@ -63,3 +63,59 @@ async def save_job(title, description, salary, category_id):
 
     finally:
         await conn.close()
+categories = [
+    {
+        "name": "IT",
+        "description": "Программирование и технологии"
+    },
+    {
+        "name": "Дизайн",
+        "description": "UI/UX и графический дизайн"
+    },
+    {
+        "name": "Маркетинг",
+        "description": "Реклама и продвижение"
+    },
+    {
+        "name": "Продажи",
+        "description": "Продажи и работа с клиентами"
+    },
+    {
+        "name": "Финансы",
+        "description": "Бухгалтерия и финансы"
+    }
+]
+
+def get_categories():
+    return categories   
+    
+vacancies = [
+    {
+        "title": "Python Developer",
+        "company": "Softclub",
+        "salary": "8000$"
+    },
+    {
+        "title": "Frontend Developer",
+        "company": "IT_RUN",
+        "salary": "5000$"
+    },
+    {
+        "title": "C++ Developer",
+        "company": "Ilmkhona",
+        "salary": "4000$"
+    },
+    {
+        "title": "Backend Developer",
+        "company": "Alif_bank",
+        "salary": "6000$"
+    },
+    {
+        "title": "UI/UX Designer",
+        "company": "DS_bank",
+        "salary": "3500$"
+    }
+]
+
+def get_vacancies():
+     return vacancies

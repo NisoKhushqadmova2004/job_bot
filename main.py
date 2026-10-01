@@ -8,8 +8,8 @@ from callbacks import router as callback_router
 from service import *
 from aiogram.types import Message
 from aiogram.filters import CommandStart, Command
-from keyboards import *
-
+from service import get_user, save_user
+from keyboards import category_batton
 
 
 load_dotenv()
